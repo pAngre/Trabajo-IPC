@@ -6,7 +6,13 @@ package controlador;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -15,6 +21,25 @@ import javafx.fxml.Initializable;
  */
 public class RegistroController implements Initializable {
 
+    @FXML
+    private TextField campoNombre;
+    @FXML
+    private TextField campoApellidos;
+    @FXML
+    private TextField campoTlf;
+    @FXML
+    private TextField campoNick;
+    @FXML
+    private TextField campoPass;
+    @FXML
+    private TextField campoCredit;
+    @FXML
+    private ComboBox<?> avatarCombo;
+    @FXML
+    private Text textoError;
+    @FXML
+    private Button botonRegistrar;
+
     /**
      * Initializes the controller class.
      */
@@ -22,5 +47,9 @@ public class RegistroController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void registrarClicked(ActionEvent event) {
+    }
     
 }
