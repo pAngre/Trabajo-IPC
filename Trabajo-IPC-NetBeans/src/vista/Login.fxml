@@ -15,13 +15,22 @@
 
 <VBox prefHeight="342.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.LoginController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="101.0" prefWidth="371.0">
          <children>
-            <ImageView fx:id="logo" fitHeight="110.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true" />
-            <Label prefHeight="110.0" prefWidth="152.0" text="LOGIN">
+            <ImageView fx:id="logo" fitHeight="110.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="15.0" top="5.0" />
+               </HBox.margin></ImageView>
+            <Label prefHeight="96.0" prefWidth="152.0" text="LOGIN" textFill="#696969">
                <font>
                   <Font size="40.0" />
                </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets left="38.0" />
+               </HBox.margin>
             </Label>
          </children>
       </HBox>
@@ -36,31 +45,53 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
+<<<<<<< HEAD
+            <TextField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="10.0" right="30.0" />
+               </GridPane.margin></TextField>
+            <TextField fx:id="nick" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets right="30.0" top="10.0" />
+               </GridPane.margin></TextField>
+            <Label text="Nickname" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets left="30.0" top="10.0" />
+               </GridPane.margin></Label>
+            <Label text="Contraseña" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="30.0" />
+               </GridPane.margin></Label>
+=======
             <TextField fx:id="nick" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1" />
             <TextField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Nickname" GridPane.halignment="CENTER" />
             <Label text="Contraseña" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <Button fx:id="botonEntrar" mnemonicParsing="false" onAction="#entrarClicked" text="Entrar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+>>>>>>> e37f0a9380370ac291dcbdf76aa0b523e1b881b3
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
       </GridPane>
       <HBox prefHeight="38.0" prefWidth="371.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Primera vez?">
+            <Text fill="#4b4444" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Primera vez?">
                <font>
-                  <Font size="19.0" />
+                  <Font size="16.0" />
                </font>
                <HBox.margin>
-                  <Insets left="50.0" top="10.0" />
+                  <Insets bottom="15.0" left="50.0" />
                </HBox.margin>
             </Text>
          </children>
       </HBox>
-      <Button fx:id="botonRegistro" mnemonicParsing="false" onAction="#irARegistro" prefHeight="25.0" prefWidth="169.0" text="Registrate aqui">
+      <Button fx:id="botonRegistro" mnemonicParsing="false" onAction="#irARegistro" prefHeight="25.0" prefWidth="150.0" text="Registrate aqui">
          <font>
             <Font size="15.0" />
          </font>
          <VBox.margin>
-            <Insets left="100.0" />
+            <Insets bottom="20.0" left="120.0" />
          </VBox.margin>
       </Button>
    </children>
