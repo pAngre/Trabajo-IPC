@@ -30,6 +30,8 @@ public class LoginController implements Initializable {
     private TextField nick;
     @FXML
     private Button botonRegistro;
+    @FXML
+    private Button botonEntrar;
 
     /**
      * Initializes the controller class.
@@ -46,6 +48,10 @@ public class LoginController implements Initializable {
 
     @FXML
     private void irARegistro(ActionEvent event) {
+    }
+
+    @FXML
+    private void entrarClicked(ActionEvent event) {
     }
     
 }
