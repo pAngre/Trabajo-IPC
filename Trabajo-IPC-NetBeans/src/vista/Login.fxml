@@ -61,10 +61,6 @@
                <GridPane.margin>
                   <Insets bottom="10.0" left="30.0" />
                </GridPane.margin></Label>
-            <TextField fx:id="nick" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1" />
-            <TextField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Nickname" GridPane.halignment="CENTER" />
-            <Label text="Contraseña" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <Button fx:id="botonEntrar" mnemonicParsing="false" onAction="#entrarClicked" text="Entrar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
          </children>
          <VBox.margin>
