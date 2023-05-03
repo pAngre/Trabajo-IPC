@@ -50,6 +50,7 @@ public class RegistroController implements Initializable {
 
     @FXML
     private void registrarClicked(ActionEvent event) {
+        textoError.setText("Porfavor completa correctamente todos los campos");
     }
     
 }
