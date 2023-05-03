@@ -18,8 +18,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.*;
 
 /**
  * FXML Controller class
@@ -30,12 +32,15 @@ public class LoginController implements Initializable {
 
     @FXML
     private ImageView logo;
-    @FXML
-    private TextField password;
-    @FXML
-    private TextField nick;
+
     @FXML
     private Button botonRegistro;
+    @FXML
+    private TextField nickText;
+    @FXML
+    private TextField passwordText;
+    @FXML
+    private Text textoError;
     @FXML
     private Button botonEntrar;
 
@@ -45,11 +50,10 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        //File file = new File("avatars/logo1.png");
         Image image = new Image(getClass().getResourceAsStream("/avatars/logo.png"));
         logo.setImage(image);
         
-        //logo = new ImageView("/avatars/logo.png");
+        
     }    
 
     @FXML
@@ -69,7 +73,27 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void entrarClicked(ActionEvent event) {
+    private void entrarClicked(ActionEvent event) throws ClubDAOException, IOException {
+        String nick = nickText.getText();
+        String pass = passwordText.getText();
+        
+        Club c = model.Club.getInstance();
+        boolean existe = c.existsLogin(nick);
+        
+        if(existe){
+         Member m = c.getMemberByCredentials(nick, pass);
+         textoError.setText("hola");
+         
+         if(m != null){
+            textoError.setText("Nickname y contraseña no coinciden");
+        }
+         else{
+             textoError.setText("Bienvenido" + nick);
+         }
+        }
+        else{
+            textoError.setText("Login no existe. Porfavor registrate");
+        }
     }
     
 }

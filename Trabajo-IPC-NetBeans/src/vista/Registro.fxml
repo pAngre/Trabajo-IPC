@@ -7,7 +7,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -25,9 +24,9 @@
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Text>
-            <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Los campos marcados con el asterisco (*) son obligatorios">
+            <Text fill="#b50b0b" strokeType="OUTSIDE" strokeWidth="0.0" text="Los campos marcados con el asterisco (*) son obligatorios">
                <VBox.margin>
-                  <Insets left="150.0" />
+                  <Insets left="150.0" top="10.0" />
                </VBox.margin>
             </Text>
          </children>
@@ -52,7 +51,7 @@
                   <Insets left="50.0" />
                </GridPane.margin>
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <Label text="Apellidos  *" GridPane.rowIndex="1">
@@ -60,7 +59,7 @@
                   <Insets left="50.0" />
                </GridPane.margin>
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <Label text="Telefono  *" GridPane.rowIndex="2">
@@ -68,7 +67,7 @@
                   <Insets left="50.0" />
                </GridPane.margin>
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <Label text="Nickname  *" GridPane.rowIndex="3">
@@ -76,7 +75,7 @@
                   <Insets left="50.0" />
                </GridPane.margin>
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <Label text="Password  *" GridPane.rowIndex="4">
@@ -84,7 +83,7 @@
                   <Insets left="50.0" />
                </GridPane.margin>
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <Label text="Numero de tarjeta de credito" GridPane.rowIndex="5">
@@ -92,7 +91,7 @@
                   <Insets left="50.0" />
                </GridPane.margin>
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <Label text="Imagen de perfil" GridPane.rowIndex="6">
@@ -100,7 +99,7 @@
                   <Insets left="50.0" />
                </GridPane.margin>
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <TextField fx:id="campoNombre" GridPane.columnIndex="1">
@@ -146,17 +145,32 @@
             <Insets top="20.0" />
          </VBox.margin>
       </GridPane>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <Text fx:id="textoError" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Porfavor completa correctamente todos los campos">
-               <HBox.margin>
-                  <Insets left="10.0" top="20.0" />
-               </HBox.margin></Text>
-            <Button fx:id="botonRegistrar" mnemonicParsing="false" onAction="#registrarClicked" text="Registrar">
-               <HBox.margin>
-                  <Insets left="150.0" top="30.0" />
-               </HBox.margin></Button>
+            <Text fx:id="textoError" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0">
+               <GridPane.margin>
+                  <Insets left="25.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Button fx:id="botonRegistrar" mnemonicParsing="false" onAction="#registrarClicked" text="Registrar" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="200.0" />
+               </GridPane.margin>
+            </Button>
          </children>
-      </HBox>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </GridPane>
    </children>
 </VBox>
