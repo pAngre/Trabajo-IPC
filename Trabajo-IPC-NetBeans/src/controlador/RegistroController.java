@@ -4,6 +4,7 @@
  */
 package controlador;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -58,7 +59,7 @@ public class RegistroController implements Initializable {
     }    
 
     @FXML
-    private void registrarClicked(ActionEvent event) {
+    private void registrarClicked(ActionEvent event) throws ClubDAOException, IOException {
         Club c = model.Club.getInstance();
         boolean existe = c.existsLogin(campoNick.getText());
         
