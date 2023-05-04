@@ -22,12 +22,10 @@ import javafx.stage.Stage;
  *
  * @author angre
  */
-public class PrincipalController implements Initializable {
+public class DisponibilidadPistasController implements Initializable {
 
     @FXML
-    private Button botonDispo;
-    @FXML
-    private Button botonLogin;
+    private Button botonAtras;
 
     /**
      * Initializes the controller class.
@@ -38,35 +36,19 @@ public class PrincipalController implements Initializable {
     }    
 
     @FXML
-    private void clickedDispo(ActionEvent event) throws IOException {
-        FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/DisponibilidadPistas.fxml"));
+    private void clickedAtras(ActionEvent event) throws IOException {
+        FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/Principal.fxml"));
         Parent root = miCargador.load();
-        
-        
+               
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.setTitle("Ver Disponibilidad de Pistas");
+        stage.setTitle("Club de Tenis MASTURBANDA");
         stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
-        stage = (Stage) botonDispo.getScene().getWindow();
+        stage = (Stage) botonAtras.getScene().getWindow();
         stage.close();
-    }
-
-    @FXML
-    private void clickedLogin(ActionEvent event) throws IOException {
-        FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/Login.fxml"));
-        Parent root = miCargador.load();
-        
-        
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Login Club de Tenis MASTURBANDA");
-        stage.setResizable(false);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.showAndWait();
     }
     
 }
