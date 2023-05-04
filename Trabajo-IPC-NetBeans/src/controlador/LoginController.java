@@ -61,7 +61,6 @@ public class LoginController implements Initializable {
         FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/Registro.fxml"));
         Parent root = miCargador.load();
         
-        RegistroController controladorRegistro = miCargador.getController();
         
         Scene scene = new Scene(root, 600, 500);
         Stage stage = new Stage();
@@ -82,13 +81,12 @@ public class LoginController implements Initializable {
         
         if(existe){
          Member m = c.getMemberByCredentials(nick, pass);
-         textoError.setText("hola");
          
-         if(m != null){
+         if(m == null){
             textoError.setText("Nickname y contraseña no coinciden");
         }
          else{
-             textoError.setText("Bienvenido" + nick);
+             textoError.setText("Bienvenido " + nick);
          }
         }
         else{

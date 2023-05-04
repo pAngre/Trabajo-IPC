@@ -4,19 +4,29 @@
  */
 package controlador;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import model.*;
 
 /**
@@ -35,8 +45,6 @@ public class RegistroController implements Initializable {
     @FXML
     private TextField campoNick;
     @FXML
-    private TextField campoPass;
-    @FXML
     private TextField campoCredit;
     @FXML
     private ComboBox<String> avatarCombo;
@@ -44,6 +52,12 @@ public class RegistroController implements Initializable {
     private Text textoError;
     @FXML
     private Button botonRegistrar;
+    @FXML
+    private PasswordField campoPassRepe;
+    @FXML
+    private PasswordField campoPass;
+    @FXML
+    private TextField campoSVC;
 
     /**
      * Initializes the controller class.
@@ -61,22 +75,33 @@ public class RegistroController implements Initializable {
     @FXML
     private void registrarClicked(ActionEvent event) throws ClubDAOException, IOException {
         Club c = model.Club.getInstance();
-        boolean existe = c.existsLogin(campoNick.getText());
+        textoError.setText("");
         
-        if((!campoNombre.getText().isEmpty())
-                && (campoNombre.getText().trim().length() != 0)
-                && (!campoApellidos.getText().isEmpty())
-                && (campoApellidos.getText().trim().length() != 0)
-                && (!campoTlf.getText().isEmpty())
-                && (campoTlf.getText().trim().length() != 0)
-                && (!campoNick.getText().isEmpty())
-                && (campoNick.getText().trim().length() != 0)
-                && (!existe)
-                && (!campoPass.getText().isEmpty())
-                && (campoPass.getText().trim().length() != 0)){
-        
-    }
-        //textoError.setText("Porfavor completa correctamente todos los campos");
+        if(esValido(campoNombre) && esValido(campoApellidos) && esTlfValido(campoTlf)
+                && esNickValido(campoNick) && esPassValida(campoPass, campoPassRepe)
+                && esCreditValido(campoCredit, campoSVC)){
+            int svc = 0;
+            if(!campoSVC.getText().isEmpty()){
+                svc = Integer.parseInt(campoSVC.getText());
+            }
+            Image img;
+            if(avatarCombo.getValue() == null){
+                img = new Image("/avatars/default.png");
+            }
+            else{
+                img = new Image(avatarCombo.getValue());
+            }
+            c.registerMember(campoNombre.getText(), campoApellidos.getText(),
+                    campoTlf.getText(), campoNick.getText(), campoPass.getText(),
+                    campoCredit.getText(), svc, img);
+            Stage stage = (Stage) botonRegistrar.getScene().getWindow();
+            stage.close();
+            }
+            
+        else{
+            
+            textoError.setText("Porfavor completa correctamente todos los campos");         
+        }
     }
     
     class ImagenTabCell extends ComboBoxListCell<String> {
@@ -97,5 +122,41 @@ public class RegistroController implements Initializable {
             }
         }
     }
+    private boolean esValido(TextField t){
+        String s = t.getText();
+        return (!s.isEmpty()) && (s.trim().length() != 0);
+    }
+    private boolean esNickValido(TextField t) throws ClubDAOException, IOException{
+        Club c = model.Club.getInstance();
+        boolean existe = c.existsLogin(campoNick.getText());
+        String s = t.getText();
+        return esValido(t) && !existe && !s.contains(" ");
+    }
+    private boolean esPassValida(TextField t, TextField t1){
+        String s = t.getText();
+        String r = "^(?=.*[0-9])"
+                + "(?=.*[a-z])"
+                + "(?=\\S+$).{6,20}$";
+        
+        Pattern p = Pattern.compile(r);
+        Matcher m = p.matcher(s);
+        return esValido(t) && m.matches() && s.equals(t1.getText());
+    }
+    private boolean esTlfValido(TextField t){
+        String s = t.getText();
+        Pattern p = Pattern.compile("^\\d{9}$");
+        Matcher m = p.matcher(s);
+        return esValido(t) && m.matches();
+    }
+    private boolean esCreditValido(TextField t, TextField t1){
+        String s = t.getText();
+        Pattern p = Pattern.compile("^\\d{16}$");
+        Matcher m = p.matcher(s);
+        String s1 = t1.getText();
+        Pattern p1 = Pattern.compile("^\\d{3}$");
+        Matcher m1 = p1.matcher(s1);
+        return (t.getText().isEmpty()&& t1.getText().isEmpty()) || (esValido(t) && esValido(t1) && m.matches() && m1.matches());
+    }
+    
     
 }
