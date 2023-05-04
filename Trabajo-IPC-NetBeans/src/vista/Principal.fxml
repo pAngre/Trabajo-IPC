@@ -9,6 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+
 <GridPane alignment="CENTER" prefHeight="278.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.PrincipalController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -19,53 +20,48 @@
       <RowConstraints maxHeight="280.0" minHeight="10.0" prefHeight="98.19998168945312" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ImageView fitHeight="66.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+      <ImageView fx:id="logo" fitHeight="66.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets bottom="90.0" left="5.0" />
+            <Insets right="320.0" top="20.0" />
          </GridPane.margin>
       </ImageView>
-      <ImageView fitHeight="67.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+      <ImageView fx:id="cent" fitHeight="67.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets bottom="75.0" left="350.0" />
+            <Insets left="320.0" top="20.0" />
          </GridPane.margin>
       </ImageView>
-      <ImageView fitHeight="481.0" fitWidth="430.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </ImageView>
-      <Button fx:id="botonDispo" mnemonicParsing="false" onAction="#clickedDispo" prefHeight="32.0" prefWidth="210.0" style="-fx-border-color: black;" text="Ver disponibilidad de pistas" textFill="#717171" GridPane.rowIndex="2">
+      <Button fx:id="botonDispo" mnemonicParsing="false" onAction="#clickedDispo" prefHeight="32.0" prefWidth="210.0" style="-fx-border-color: black;" text="Ver disponibilidad de pistas" textFill="#717171" GridPane.halignment="CENTER" GridPane.rowIndex="2">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
          <GridPane.margin>
-            <Insets bottom="70.0" left="105.0" top="20.0" />
+            <Insets bottom="70.0" top="20.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="botonLogin" alignment="CENTER" mnemonicParsing="false" onAction="#clickedLogin" prefHeight="26.0" prefWidth="210.0" style="-fx-border-color: black;" text="Login" textFill="#717171" GridPane.rowIndex="1">
+      <Button fx:id="botonLogin" alignment="CENTER" mnemonicParsing="false" onAction="#clickedLogin" prefHeight="26.0" prefWidth="210.0" style="-fx-border-color: black;" text="Login" textFill="#717171" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets left="105.0" top="120.0" />
+            <Insets top="120.0" />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Text fill="#3d3d3d" strokeType="OUTSIDE" strokeWidth="0.0" text="Club Tenis MASTURBANDA" GridPane.rowIndex="1">
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Club Tenis MASTURBANDA" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="95.0" left="95.0" />
+            <Insets bottom="95.0" />
          </GridPane.margin>
          <font>
             <Font name="Rockwell Extra Bold" size="16.0" />
          </font>
       </Text>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Club fundado en 1860" GridPane.rowIndex="1">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Club fundado en 1860" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="45.0" left="150.0" />
+            <Insets />
          </GridPane.margin>
       </Text>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tlf: +34 620 04 00 50" GridPane.rowIndex="2">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tlf: +34 620 04 00 50" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets left="150.0" top="60.0" />
+            <Insets bottom="20.0" />
          </GridPane.margin>
       </Text>
    </children>

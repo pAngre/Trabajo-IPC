@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -28,6 +30,10 @@ public class PrincipalController implements Initializable {
     private Button botonDispo;
     @FXML
     private Button botonLogin;
+    @FXML
+    private ImageView logo;
+    @FXML
+    private ImageView cent;
 
     /**
      * Initializes the controller class.
@@ -35,6 +41,10 @@ public class PrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Image imagen = new Image(getClass().getResourceAsStream("/avatars/logo.png"));
+        logo.setImage(imagen);
+        //Image imagen2 = new Image(getClass().getResourceAsStream("/avatars/cent.png"));
+        //cent.setImage(imagen2);
     }    
 
     @FXML
