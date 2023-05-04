@@ -29,7 +29,7 @@ public class JavaFXMLApplication extends Application {
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
         stage.setTitle("Club de Tenis MASTURBANDA");
-        stage.setResizable(false);
+        //stage.setResizable(false);
         stage.show();
     }
 
