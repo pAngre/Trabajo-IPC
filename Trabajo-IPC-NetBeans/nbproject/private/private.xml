@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/adrmp/Trabajo-IPC/Trabajo-IPC-NetBeans/src/vista/Principal.fxml</file>
+            <file>file:/C:/Users/adrmp/Trabajo-IPC/Trabajo-IPC-NetBeans/src/controlador/RegistroController.java</file>
+            <file>file:/C:/Users/adrmp/Trabajo-IPC/Trabajo-IPC-NetBeans/src/controlador/PrincipalController.java</file>
+            <file>file:/C:/Users/adrmp/Trabajo-IPC/Trabajo-IPC-NetBeans/src/controlador/LoginController.java</file>
+        </group>
     </open-files>
 </project-private>
