@@ -4,6 +4,7 @@
  */
 package controlador;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,6 +26,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import model.*;
 
 /**
@@ -73,20 +75,31 @@ public class RegistroController implements Initializable {
     @FXML
     private void registrarClicked(ActionEvent event) throws ClubDAOException, IOException {
         Club c = model.Club.getInstance();
-        
+        textoError.setText("");
         
         if(esValido(campoNombre) && esValido(campoApellidos) && esTlfValido(campoTlf)
                 && esNickValido(campoNick) && esPassValida(campoPass, campoPassRepe)
                 && esCreditValido(campoCredit, campoSVC)){
-            textoError.setText("todo ok");
-                //c.registerMember(campoNombre.getText(), campoApellidos.getText(),
-                        //campoTlf.getText(), campoNick.getText(), campoPass.getText(),
-                        //campoCredit.getText(), 0, null);
+            int svc = 0;
+            if(!campoSVC.getText().isEmpty()){
+                svc = Integer.parseInt(campoSVC.getText());
+            }
+            Image img;
+            if(avatarCombo.getValue() == null){
+                img = new Image("/avatars/default.png");
+            }
+            else{
+                img = new Image(avatarCombo.getValue());
+            }
+            c.registerMember(campoNombre.getText(), campoApellidos.getText(),
+                    campoTlf.getText(), campoNick.getText(), campoPass.getText(),
+                    campoCredit.getText(), svc, img);
             Stage stage = (Stage) botonRegistrar.getScene().getWindow();
             stage.close();
             }
             
         else{
+            
             textoError.setText("Porfavor completa correctamente todos los campos");         
         }
     }

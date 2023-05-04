@@ -81,13 +81,12 @@ public class LoginController implements Initializable {
         
         if(existe){
          Member m = c.getMemberByCredentials(nick, pass);
-         textoError.setText("hola");
          
-         if(m != null){
+         if(m == null){
             textoError.setText("Nickname y contraseña no coinciden");
         }
          else{
-             textoError.setText("Bienvenido" + nick);
+             textoError.setText("Bienvenido " + nick);
          }
         }
         else{
