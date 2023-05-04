@@ -23,7 +23,7 @@
          </GridPane.margin>
       </ImageView>
       <ImageView fitHeight="141.0" fitWidth="431.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-border-color: black;" text="Ver disponibilidad de pistas" GridPane.rowIndex="1">
+      <Button fx:id="botonDispo" mnemonicParsing="false" onAction="#clickedDispo" prefHeight="32.0" prefWidth="216.0" style="-fx-border-color: black;" text="Ver disponibilidad de pistas" GridPane.rowIndex="1">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -31,7 +31,7 @@
             <Insets bottom="60.0" left="105.0" />
          </GridPane.margin>
       </Button>
-      <Button alignment="CENTER" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-border-color: black;" text="Login" textFill="#171717">
+      <Button fx:id="botonLogin" alignment="CENTER" mnemonicParsing="false" onAction="#clickedLogin" prefHeight="32.0" prefWidth="216.0" style="-fx-border-color: black;" text="Login" textFill="#171717">
          <GridPane.margin>
             <Insets left="105.0" top="60.0" />
          </GridPane.margin>
