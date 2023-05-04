@@ -50,7 +50,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        Image image = new Image(getClass().getResourceAsStream("/avatars/logo.png"));
+        Image image = new Image(getClass().getResourceAsStream("/avatars/logo2.png"));
         logo.setImage(image);
         
         

@@ -16,6 +16,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -33,7 +35,7 @@ public class PrincipalController implements Initializable {
     @FXML
     private ImageView logo;
     @FXML
-    private ImageView cent;
+    private Circle circulo;
 
     /**
      * Initializes the controller class.
@@ -41,8 +43,9 @@ public class PrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        Image imagen = new Image(getClass().getResourceAsStream("/avatars/logo.png"));
-        logo.setImage(imagen);
+        Image imagen = new Image(getClass().getResourceAsStream("/avatars/logo2.png"));
+        //logo = new ImageView(imagen);
+        circulo.setFill(new ImagePattern(imagen));
         //Image imagen2 = new Image(getClass().getResourceAsStream("/avatars/cent.png"));
         //cent.setImage(imagen2);
     }    
@@ -52,16 +55,15 @@ public class PrincipalController implements Initializable {
         FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/DisponibilidadPistas.fxml"));
         Parent root = miCargador.load();
         
-        
         Scene scene = new Scene(root);
         Stage stage = new Stage();
+        
         stage.setScene(scene);
         stage.setTitle("Ver Disponibilidad de Pistas");
-        stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
-        stage = (Stage) botonDispo.getScene().getWindow();
-        stage.close();
+        Stage mystage = (Stage) this.botonDispo.getScene().getWindow();
+        mystage.close();
     }
 
     @FXML

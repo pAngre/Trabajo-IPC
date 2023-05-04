@@ -44,7 +44,6 @@ public class DisponibilidadPistasController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle("Club de Tenis MASTURBANDA");
-        stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
         stage = (Stage) botonAtras.getScene().getWindow();

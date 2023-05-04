@@ -20,7 +20,7 @@
          <children>
             <ImageView fx:id="logo" fitHeight="110.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets bottom="5.0" left="15.0" top="5.0" />
+                  <Insets bottom="5.0" left="25.0" top="10.0" />
                </HBox.margin></ImageView>
             <Label prefHeight="96.0" prefWidth="152.0" text="LOGIN" textFill="#696969">
                <font>
@@ -30,7 +30,7 @@
                   <Insets left="10.0" />
                </padding>
                <HBox.margin>
-                  <Insets left="55.0" top="25.0" />
+                  <Insets left="25.0" top="25.0" />
                </HBox.margin>
             </Label>
          </children>
