@@ -58,7 +58,7 @@
       </Text>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tlf: +34 620 04 00 50" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets bottom="20.0" />
+            <Insets />
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="16.0" />
