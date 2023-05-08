@@ -30,7 +30,7 @@ import javax.imageio.ImageIO;
 import model.*;
 
 /**
- * FXML Controller class
+ * Controlador de la ventana del REGISTRO
  *
  * @author Pablo Angre
  */
@@ -64,7 +64,7 @@ public class RegistroController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // Añadir avatares al combo
         avatarCombo.getItems().addAll("/avatars/men.PNG","/avatars/men2.PNG",
                 "/avatars/men3.PNG","/avatars/men4.PNG","/avatars/men5.PNG",
                 "/avatars/woman.PNG","/avatars/woman2.PNG","/avatars/woman3.PNG",
@@ -75,22 +75,26 @@ public class RegistroController implements Initializable {
     @FXML
     private void registrarClicked(ActionEvent event) throws ClubDAOException, IOException {
         Club c = model.Club.getInstance();
-        textoError.setText("");
         
+        // revisar que todos los campos son correctos
         if(esValido(campoNombre) && esValido(campoApellidos) && esTlfValido(campoTlf)
                 && esNickValido(campoNick) && esPassValida(campoPass, campoPassRepe)
                 && esCreditValido(campoCredit, campoSVC)){
             int svc = 0;
+            // si han completado el campo svc cambiarlo a INTEGER
             if(!campoSVC.getText().isEmpty()){
                 svc = Integer.parseInt(campoSVC.getText());
             }
             Image img;
+            // si no han elegido avatar poner el default
+            // si han elegido darle un valor a img
             if(avatarCombo.getValue() == null){
                 img = new Image("/avatars/default.png");
             }
             else{
                 img = new Image(avatarCombo.getValue());
             }
+            // registrar el nuevo miembro
             c.registerMember(campoNombre.getText(), campoApellidos.getText(),
                     campoTlf.getText(), campoNick.getText(), campoPass.getText(),
                     campoCredit.getText(), svc, img);
@@ -122,16 +126,22 @@ public class RegistroController implements Initializable {
             }
         }
     }
+    
+    // metodo para saber si el TextField es valido
     private boolean esValido(TextField t){
         String s = t.getText();
         return (!s.isEmpty()) && (s.trim().length() != 0);
     }
+    
+    // metodo para saber si el TextField del NICK es valido
     private boolean esNickValido(TextField t) throws ClubDAOException, IOException{
         Club c = model.Club.getInstance();
         boolean existe = c.existsLogin(campoNick.getText());
         String s = t.getText();
         return esValido(t) && !existe && !s.contains(" ");
     }
+    
+    // metodo para saber si el TextField de la CONTRASEÑA es valido
     private boolean esPassValida(TextField t, TextField t1){
         String s = t.getText();
         String r = "^(?=.*[0-9])"
@@ -142,12 +152,16 @@ public class RegistroController implements Initializable {
         Matcher m = p.matcher(s);
         return esValido(t) && m.matches() && s.equals(t1.getText());
     }
+    
+    // metodo para saber si el TextField del TELEFONO es valido
     private boolean esTlfValido(TextField t){
         String s = t.getText();
         Pattern p = Pattern.compile("^\\d{9}$");
         Matcher m = p.matcher(s);
         return esValido(t) && m.matches();
     }
+    
+    // metodo para saber si el TextField de la TARJETA y el SVC es valido
     private boolean esCreditValido(TextField t, TextField t1){
         String s = t.getText();
         Pattern p = Pattern.compile("^\\d{16}$");

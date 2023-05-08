@@ -22,7 +22,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
+ * Controlador de la ventana PRINCIPAL sin el LOGIN hecho
  *
  * @author angre
  */
@@ -42,16 +42,19 @@ public class PrincipalController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // LOGO CIRCULAR
         Image imagen = new Image(getClass().getResourceAsStream("/avatars/logo2.png"));
-        //logo = new ImageView(imagen);
         circulo.setFill(new ImagePattern(imagen));
+        
+        //logo = new ImageView(imagen);
         //Image imagen2 = new Image(getClass().getResourceAsStream("/avatars/cent.png"));
         //cent.setImage(imagen2);
     }    
 
     @FXML
     private void clickedDispo(ActionEvent event) throws IOException {
+        // ABRIR DISPONIBILIDAD DE PISTAS
+        
         FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/DisponibilidadPistas.fxml"));
         Parent root = miCargador.load();
         
@@ -68,6 +71,8 @@ public class PrincipalController implements Initializable {
 
     @FXML
     private void clickedLogin(ActionEvent event) throws IOException {
+        // ABRIR LOGIN
+        
         FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/Login.fxml"));
         Parent root = miCargador.load();
         

@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 import model.*;
 
 /**
- * FXML Controller class
+ * Controlador de la ventana del LOGIN
  *
  * @author Pablo Angre
  */
@@ -49,7 +49,7 @@ public class LoginController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // imagen de logo
         Image image = new Image(getClass().getResourceAsStream("/avatars/logo2.png"));
         logo.setImage(image);
         
@@ -58,6 +58,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void irARegistro(ActionEvent event) throws IOException {
+        // abrir ventana de registro
         FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/Registro.fxml"));
         Parent root = miCargador.load();
         
@@ -75,11 +76,12 @@ public class LoginController implements Initializable {
     private void entrarClicked(ActionEvent event) throws ClubDAOException, IOException {
         String nick = nickText.getText();
         String pass = passwordText.getText();
-        
+        //crea instancia de club
         Club c = model.Club.getInstance();
-        boolean existe = c.existsLogin(nick);
         
-        if(existe){
+        //boolean existe = c.existsLogin(nick);
+        // revisa que el login y la contraseña sean correctos y da la bienvenida
+        if(c.existsLogin(nick)){
          Member m = c.getMemberByCredentials(nick, pass);
          
          if(m == null){

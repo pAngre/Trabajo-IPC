@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
 /**
- * FXML Controller class
+ * Controlador de la ventana PrRINCIPAL con el LOGIN hecho
  *
  * @author Pablo Angre
  */
