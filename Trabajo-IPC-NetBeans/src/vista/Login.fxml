@@ -5,37 +5,26 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="342.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.LoginController">
+
+<AnchorPane prefHeight="366.0" prefWidth="366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.LoginController">
    <children>
-      <HBox prefHeight="101.0" prefWidth="371.0">
-         <children>
-            <ImageView fx:id="logo" fitHeight="110.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true">
-               <HBox.margin>
-                  <Insets bottom="5.0" left="25.0" top="10.0" />
-               </HBox.margin></ImageView>
-            <Label prefHeight="96.0" prefWidth="152.0" text="LOGIN" textFill="#696969">
-               <font>
-                  <Font size="40.0" />
-               </font>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets left="25.0" top="25.0" />
-               </HBox.margin>
-            </Label>
-         </children>
-      </HBox>
-      <GridPane prefHeight="112.0" prefWidth="371.0">
+      <Label layoutX="186.0" layoutY="14.0" prefHeight="96.0" prefWidth="152.0" text="LOGIN" textFill="#696969">
+         <font>
+            <Font size="40.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <GridPane layoutX="1.0" layoutY="121.0" prefHeight="112.0" prefWidth="371.0">
         <columnConstraints>
           <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -48,45 +37,36 @@
             <TextField fx:id="nickText" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="30.0" top="10.0" />
-               </GridPane.margin></TextField>
+               </GridPane.margin>
+            </TextField>
             <Label text="Nickname" GridPane.halignment="CENTER">
                <GridPane.margin>
                   <Insets left="30.0" top="10.0" />
-               </GridPane.margin></Label>
+               </GridPane.margin>
+            </Label>
             <Label text="Contraseña" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="10.0" left="30.0" />
-               </GridPane.margin></Label>
+               </GridPane.margin>
+            </Label>
             <PasswordField fx:id="passwordText" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="10.0" right="30.0" />
                </GridPane.margin>
             </PasswordField>
          </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
       </GridPane>
-      <Text fx:id="textoError" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0">
-         <VBox.margin>
-            <Insets left="75.0" />
-         </VBox.margin>
-      </Text>
-      <Button fx:id="botonEntrar" alignment="CENTER" mnemonicParsing="false" onAction="#entrarClicked" prefHeight="30.0" prefWidth="200.0" text="Entrar">
+      <Text fx:id="textoError" fill="RED" layoutX="86.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button fx:id="botonEntrar" alignment="CENTER" layoutX="86.0" layoutY="261.0" mnemonicParsing="false" onAction="#entrarClicked" prefHeight="30.0" prefWidth="200.0" text="Entrar">
          <font>
             <Font size="16.0" />
          </font>
-         <VBox.margin>
-            <Insets left="90.0" top="20.0" />
-         </VBox.margin>
       </Button>
-      <Button fx:id="botonRegistro" mnemonicParsing="false" onAction="#irARegistro" prefHeight="25.0" prefWidth="150.0" text="Registrate aqui">
+      <Button fx:id="botonRegistro" layoutX="111.0" layoutY="316.0" mnemonicParsing="false" onAction="#irARegistro" prefHeight="25.0" prefWidth="150.0" text="Registrate aqui">
          <font>
             <Font size="15.0" />
          </font>
-         <VBox.margin>
-            <Insets bottom="20.0" left="115.0" top="10.0" />
-         </VBox.margin>
       </Button>
+      <Circle fx:id="logo" fill="WHITE" layoutX="70.0" layoutY="70.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
-</VBox>
+</AnchorPane>

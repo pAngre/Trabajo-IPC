@@ -19,7 +19,7 @@
       <RowConstraints maxHeight="280.0" minHeight="10.0" prefHeight="98.19998168945312" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Circle fx:id="circulo" fill="DODGERBLUE" radius="54.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Circle fx:id="circulo" fill="WHITE" radius="54.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="75.0" />
          </GridPane.margin>
@@ -56,12 +56,12 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Tlf: +34 620 04 00 50" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tlf: +34 620 04 00 50" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="20.0" />
          </GridPane.margin>
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Text>
    </children>

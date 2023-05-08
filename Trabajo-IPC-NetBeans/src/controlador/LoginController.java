@@ -18,6 +18,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -30,8 +32,7 @@ import model.*;
  */
 public class LoginController implements Initializable {
 
-    @FXML
-    private ImageView logo;
+  
 
     @FXML
     private Button botonRegistro;
@@ -43,6 +44,8 @@ public class LoginController implements Initializable {
     private Text textoError;
     @FXML
     private Button botonEntrar;
+    @FXML
+    private Circle logo;
 
     /**
      * Initializes the controller class.
@@ -51,14 +54,14 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // imagen de logo
         Image image = new Image(getClass().getResourceAsStream("/avatars/logo2.png"));
-        logo.setImage(image);
+        logo.setFill(new ImagePattern(image));
         
         
     }    
 
     @FXML
     private void irARegistro(ActionEvent event) throws IOException {
-        // abrir ventana de registro
+        // Abrir ventana de REGISTRO
         FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/Registro.fxml"));
         Parent root = miCargador.load();
         
@@ -89,11 +92,27 @@ public class LoginController implements Initializable {
         }
          else{
              textoError.setText("Bienvenido " + nick);
+             // Abrir ventana PRINCIPAL CON LOGIN
+             FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/PrincipalLogin.fxml"));
+             Parent root = miCargador.load();
+        
+        
+             Scene scene = new Scene(root);
+             Stage stage = new Stage();
+             stage.setScene(scene);
+             stage.setTitle("Club de Tenis MASTURANDA");
+             stage.initModality(Modality.APPLICATION_MODAL);
+             stage.setMaximized(true);
+             stage.show();
+             // cerrar login y ventana principal
+             stage = (Stage) botonEntrar.getScene().getWindow();
+             stage.close();            
          }
         }
         else{
             textoError.setText("Login no existe. Porfavor registrate");
         }
     }
+
     
 }

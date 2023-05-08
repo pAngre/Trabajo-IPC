@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
@@ -94,6 +95,12 @@ public class RegistroController implements Initializable {
             else{
                 img = new Image(avatarCombo.getValue());
             }
+            // Alerta : REGISTRO CORRECTO
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setTitle("Informacion");
+            alert.setContentText("Se ha registrado correctamente");
+            alert.showAndWait();
             // registrar el nuevo miembro
             c.registerMember(campoNombre.getText(), campoApellidos.getText(),
                     campoTlf.getText(), campoNick.getText(), campoPass.getText(),
@@ -103,8 +110,15 @@ public class RegistroController implements Initializable {
             }
             
         else{
-            
-            textoError.setText("Porfavor completa correctamente todos los campos");         
+            if(c.existsLogin(campoNick.getText())){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setTitle("Error");
+                alert.setContentText("Nickname ya existe");
+                alert.showAndWait();
+            }else{
+                textoError.setText("Porfavor completa correctamente todos los campos");
+            }         
         }
     }
     
@@ -136,7 +150,7 @@ public class RegistroController implements Initializable {
     // metodo para saber si el TextField del NICK es valido
     private boolean esNickValido(TextField t) throws ClubDAOException, IOException{
         Club c = model.Club.getInstance();
-        boolean existe = c.existsLogin(campoNick.getText());
+        boolean existe = c.existsLogin(t.getText());
         String s = t.getText();
         return esValido(t) && !existe && !s.contains(" ");
     }
