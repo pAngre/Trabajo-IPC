@@ -5,6 +5,9 @@
         <group>
             <file>file:/home/angre/Trabajo-IPC/Trabajo-IPC-NetBeans/src/controlador/PrincipalController.java</file>
             <file>file:/home/angre/Trabajo-IPC/Trabajo-IPC-NetBeans/src/javafxmlapplication/JavaFXMLApplication.java</file>
+            <file>file:/home/angre/Trabajo-IPC/Trabajo-IPC-NetBeans/src/controlador/RegistroController.java</file>
+            <file>file:/home/angre/Trabajo-IPC/Trabajo-IPC-NetBeans/src/controlador/PrincipalLoginController.java</file>
+            <file>file:/home/angre/Trabajo-IPC/Trabajo-IPC-NetBeans/src/controlador/LoginController.java</file>
         </group>
     </open-files>
 </project-private>
