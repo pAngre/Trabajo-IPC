@@ -18,6 +18,8 @@ public class JavaFXMLApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         
+        Club c = model.Club.getInstance();
+        
         FXMLLoader loader= new  FXMLLoader(getClass().getResource("/vista/Principal.fxml"));
         Parent root = loader.load();
         

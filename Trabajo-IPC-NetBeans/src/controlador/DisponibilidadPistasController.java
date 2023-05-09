@@ -6,6 +6,7 @@ package controlador;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +22,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -44,15 +48,15 @@ public class DisponibilidadPistasController implements Initializable {
     @FXML
     private Button botonAtras;
     @FXML
-    private TableView<Booking> tablaDispo;
-    @FXML
-    private TableColumn<Booking, LocalTime> columnaHora;
-    @FXML
     private DatePicker dia;
     @FXML
-    private TableColumn<Booking, String> columnaInfo;
-    @FXML
     private ComboBox<String> comboPistas;
+    @FXML
+    private ListView<LocalTime> listaHoras;
+    @FXML
+    private ListView<String> listaDispo;
+    @FXML
+    private Button verDispo;
 
     /**
      * Initializes the controller class.
@@ -71,12 +75,17 @@ public class DisponibilidadPistasController implements Initializable {
             }
             comboPistas.getItems().addAll(listaPistas);
             
-            //columnas de la tabla
-            columnaHora.setCellValueFactory(new PropertyValueFactory<Booking, LocalTime>("forTime"));
-            columnaInfo.setCellValueFactory(new PropertyValueFactory<Booking, String>("member"));
-            
-            //cargar informacion
-            tablaDispo.setItems(crearReservas());
+            //restringir fechas
+            dia.setDayCellFactory((DatePicker picker) -> {
+                return new  DateCell(){
+                    @Override
+                    public void updateItem(LocalDate date, boolean empty){
+                    super.updateItem(date, empty);
+                    LocalDate today = LocalDate.now();
+                    setDisable(empty || date.compareTo(today) < 0); 
+                }
+            };
+         });
             
         } catch (ClubDAOException ex) {
             Logger.getLogger(DisponibilidadPistasController.class.getName()).log(Level.SEVERE, null, ex);
@@ -104,13 +113,92 @@ public class DisponibilidadPistasController implements Initializable {
         stage = (Stage) botonAtras.getScene().getWindow();
         stage.close();
     }
-    
-    private ObservableList<Booking> crearReservas() throws ClubDAOException, IOException{
-        Club c = model.Club.getInstance();
-        ObservableList<Booking> reservas = null;
+    @FXML
+    private void clickedVer(ActionEvent event) {
         if(comboPistas.getValue() != null && dia.getValue() != null){
-            reservas = (ObservableList<Booking>) c.getCourtBookings(comboPistas.getValue(), dia.getValue());
+            
+            //lista de Horas
+            ArrayList<LocalTime> misHoras = new ArrayList<LocalTime>();
+            misHoras = crearListaHoras(misHoras);
+            ObservableList<LocalTime> horas = FXCollections.observableArrayList(misHoras);
+            listaHoras.setItems(horas);
+            
+            //lista de Disponibilidad
+            ArrayList<String> miDispo = new ArrayList<String>();
+            miDispo = crearListaDispo(misHoras,comboPistas.getValue(), dia.getValue());
+            ObservableList<String> datos = FXCollections.observableArrayList(miDispo);
+            listaDispo.setItems(datos);
         }
-        return reservas;
+        else{
+            // Alerta : FECHA O DIA INCORRECTOS
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("ERROR");
+            alert.setContentText("Porfavor inserte correctamente el dia y la pista");
+            alert.showAndWait();
+        }
+            
     }
+    
+    private ArrayList<LocalTime> crearListaHoras(ArrayList<LocalTime> misdatos){
+        Club c = null;
+        try {
+            c = model.Club.getInstance();
+        } catch (IOException ex) {
+            Logger.getLogger(DisponibilidadPistasController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClubDAOException ex) {
+            Logger.getLogger(DisponibilidadPistasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        int duracion = c.getBookingDuration();
+        int numReservas = c.getBookingSlots();
+        misdatos.add(LocalTime.of(9, 0));
+        
+        for(int i = 1; i < numReservas; i++){
+            int hora = misdatos.get(i - 1).getHour();
+            int min = misdatos.get(i - 1).getMinute();
+            int nuevaHora = hora + (duracion / 60);
+            int nuevoMin = min + (duracion % 60);
+            misdatos.add(LocalTime.of(nuevaHora, nuevoMin));
+        }
+        
+        return misdatos;
+    }
+    
+    private ArrayList<String> crearListaDispo(ArrayList<LocalTime> misHoras, String pista, LocalDate dia){
+        ArrayList<String> res = new ArrayList<String>();
+        Club c = null;
+        try {
+            c = model.Club.getInstance();
+        } catch (IOException ex) {
+            Logger.getLogger(DisponibilidadPistasController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClubDAOException ex) {
+            Logger.getLogger(DisponibilidadPistasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //int numReservas = c.getBookingSlots();
+        List<Booking> reservas = c.getCourtBookings(pista, dia);
+        int j = 0;
+        
+        if(reservas.size() >= 1){
+            for(int i = 0; i < misHoras.size(); i++){
+            LocalTime hora = misHoras.get(i);
+            Booking reserva = reservas.get(j);
+            
+            if(hora.equals(reserva.getFromTime())){
+                res.add("RESRERVADO  por : " + reserva.getMember().getNickName());
+            }
+            else res.add("LIBRE");
+            }   
+        }
+        else{
+            for(int i = 0; i < misHoras.size(); i++){
+                res.add("LIBRE");
+            }
+        }
+        
+        return res;
+    }
+
+    
 }
