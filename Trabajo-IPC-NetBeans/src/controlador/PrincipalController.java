@@ -64,11 +64,13 @@ public class PrincipalController implements Initializable {
         
         stage.setScene(scene);
         stage.setTitle("Ver Disponibilidad de Pistas");
-        stage.setMaximized(true);
+        //stage.setMaximized(true);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
-        Stage mystage = (Stage) this.botonDispo.getScene().getWindow();
-        mystage.close();
+        
+        //cerrar vetntana
+        stage = (Stage) botonDispo.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.*;
 
 
 public class JavaFXMLApplication extends Application {
@@ -28,7 +29,7 @@ public class JavaFXMLApplication extends Application {
         stage.setTitle("Club de Tenis MASTURBANDA");
         stage.setMinHeight(400);
         stage.setMinWidth(600);
-        stage.setMaximized(true);
+        //stage.setMaximized(true);
         stage.show();
     }
 
