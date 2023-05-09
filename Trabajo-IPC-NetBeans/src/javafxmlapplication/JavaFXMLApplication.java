@@ -28,7 +28,7 @@ public class JavaFXMLApplication extends Application {
         stage.setTitle("Club de Tenis MASTURBANDA");
         stage.setMinHeight(400);
         stage.setMinWidth(600);
-        //stage.setResizable(false);
+        stage.setMaximized(true);
         stage.show();
     }
 

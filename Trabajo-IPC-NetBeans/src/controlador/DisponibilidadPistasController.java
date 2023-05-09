@@ -18,7 +18,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
+ * Controlador de la ventana para ver la DIPOIBILIDAD de PISTAS
  *
  * @author angre
  */
@@ -37,6 +37,8 @@ public class DisponibilidadPistasController implements Initializable {
 
     @FXML
     private void clickedAtras(ActionEvent event) throws IOException {
+        // VOLVER A PRINCIPAL SIN LOGIN
+        
         FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/Principal.fxml"));
         Parent root = miCargador.load();
                
@@ -45,7 +47,9 @@ public class DisponibilidadPistasController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Club de Tenis MASTURBANDA");
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setMaximized(true);
         stage.show();
+        // cerrar ventana principal
         stage = (Stage) botonAtras.getScene().getWindow();
         stage.close();
     }
