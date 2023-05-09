@@ -1,4 +1,4 @@
 # Trabajo-IPC
 
-Perras mias cuando vengais a clase os enseño como descargar eso en vuestro ordenador y como subir y descargar archivos
+Se entrega el 28 de mayo, queda por hacer muchas cosas porfavor hacer por lo menos las vistas
 
