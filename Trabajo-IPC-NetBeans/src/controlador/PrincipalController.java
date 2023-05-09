@@ -44,7 +44,7 @@ public class PrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // LOGO CIRCULAR
-        Image imagen = new Image(getClass().getResourceAsStream("/avatars/logo2.png"));
+        Image imagen = new Image(getClass().getResourceAsStream("/avatars/logo2.PNG"));
         circulo.setFill(new ImagePattern(imagen));
         
         //logo = new ImageView(imagen);

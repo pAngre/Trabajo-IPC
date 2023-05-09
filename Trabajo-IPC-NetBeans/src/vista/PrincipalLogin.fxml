@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<<<<<<< HEAD
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
@@ -55,14 +56,3 @@
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="192.53677368164062" GridPane.columnIndex="2" GridPane.rowIndex="2" />
    </children>
 </GridPane>
-=======
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.PrincipalLoginController">
-   <children>
-      <Button fx:id="botonSalir" layoutX="496.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickedSalir" prefHeight="25.0" prefWidth="90.0" text="Salir" />
-   </children>
-</AnchorPane>
->>>>>>> 9baa4dddbe7ebcf6a201d07281535e2aa1182e7a
