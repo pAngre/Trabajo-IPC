@@ -10,7 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.*;
+import model.Club;
 
 
 public class JavaFXMLApplication extends Application {
@@ -18,7 +18,7 @@ public class JavaFXMLApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         
-        Club c = model.Club.getInstance();
+        Club c = Club.getInstance();
         
         FXMLLoader loader= new  FXMLLoader(getClass().getResource("/vista/Principal.fxml"));
         Parent root = loader.load();

@@ -11,7 +11,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<<<<<<< HEAD
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -57,7 +56,7 @@
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="192.53677368164062" GridPane.columnIndex="2" GridPane.rowIndex="2" />
    </children>
 </GridPane>
-=======
+
 <BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
@@ -126,4 +125,3 @@
       </VBox>
    </right>
 </BorderPane>
->>>>>>> 371221a3d890ffc413bb1b06d6091de03cee434d
