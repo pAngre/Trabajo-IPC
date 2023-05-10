@@ -5,16 +5,20 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="600.0" styleClass="body" stylesheets="@../estilos/estiloDispo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.DisponibilidadPistasController">
    <top>
-      <Button fx:id="botonAtras" mnemonicParsing="false" onAction="#clickedAtras" text="Atras" BorderPane.alignment="TOP_LEFT">
+      <Button fx:id="botonAtras" contentDisplay="TOP" mnemonicParsing="false" onAction="#clickedAtras" prefHeight="70.0" prefWidth="114.0" text="ATRAS" BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>
             <Insets left="15.0" top="15.0" />
          </BorderPane.margin>
+         <graphic>
+            <ImageView fx:id="img1" fitHeight="50.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
       </Button>
    </top>
    <center>
@@ -42,9 +46,16 @@
       </VBox>
    </center>
    <right>
-      <VBox prefHeight="370.0" prefWidth="180.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_RIGHT" prefHeight="595.0" prefWidth="268.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="verDispo" mnemonicParsing="false" onAction="#clickedVer" prefHeight="25.0" prefWidth="121.0" text="Ver disponibilidad" />
+            <Button fx:id="verDispo" mnemonicParsing="false" onAction="#clickedVer" prefHeight="80.0" prefWidth="195.0" text="Ver Disponibilidad">
+               <VBox.margin>
+                  <Insets right="75.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fx:id="img2" fitHeight="50.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
          </children>
       </VBox>
    </right>

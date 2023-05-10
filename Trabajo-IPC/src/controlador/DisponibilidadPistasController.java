@@ -31,6 +31,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -57,6 +59,10 @@ public class DisponibilidadPistasController implements Initializable {
     private ListView<String> listaDispo;
     @FXML
     private Button verDispo;
+    @FXML
+    private ImageView img1;
+    @FXML
+    private ImageView img2;
 
     /**
      * Initializes the controller class.
@@ -93,6 +99,13 @@ public class DisponibilidadPistasController implements Initializable {
             Logger.getLogger(DisponibilidadPistasController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        //imagen atras
+        Image imagen1 = new Image(getClass().getResourceAsStream("/resources/imgAtras.png"));
+        img1.setImage(imagen1);
+        
+        //imagen disponibilidad
+        Image imagen2 = new Image(getClass().getResourceAsStream("/resources/imgVer.png"));
+        img2.setImage(imagen2);
     }    
 
     @FXML
