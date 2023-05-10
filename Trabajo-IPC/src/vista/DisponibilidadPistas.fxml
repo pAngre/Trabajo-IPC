@@ -28,19 +28,11 @@
             </ComboBox>
             <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="500.0">
                <children>
-<<<<<<< HEAD:Trabajo-IPC/src/vista/DisponibilidadPistas.fxml
                   <ListView fx:id="listaHoras" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="500.0" prefWidth="175.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></ListView>
                   <ListView fx:id="listaDispo" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="500.0" prefWidth="250.0" />
-=======
-                  <ListView fx:id="listaHoras" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="350.0" prefWidth="175.0">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin></ListView>
-                  <ListView fx:id="listaDispo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="350.0" prefWidth="250.0" />
->>>>>>> 7a0e20f7f262b5cfe17bcd1d41b48bb454b09dd0:Trabajo-IPC-NetBeans/src/vista/DisponibilidadPistas.fxml
                </children>
                <VBox.margin>
                   <Insets top="50.0" />

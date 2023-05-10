@@ -68,7 +68,7 @@ public class PrincipalController implements Initializable {
         stage.setTitle("Ver Disponibilidad de Pistas");
         stage.setMinHeight(500);
         stage.setMinWidth(550);
-        stage.setMaximized(true);
+        //stage.setMaximized(true);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
         
