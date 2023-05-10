@@ -2,6 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+<<<<<<< HEAD
+        <group/>
+=======
+        <group>
+            <file>file:/C:/Users/pangr/Documents/Trabajo-IPC/Trabajo-IPC-NetBeans/src/controlador/PrincipalController.java</file>
+            <file>file:/C:/Users/pangr/Documents/Trabajo-IPC/Trabajo-IPC-NetBeans/src/controlador/DisponibilidadPistasController.java</file>
+            <file>file:/C:/Users/pangr/Documents/Trabajo-IPC/Trabajo-IPC-NetBeans/src/controlador/LoginController.java</file>
+            <file>file:/C:/Users/pangr/Documents/Trabajo-IPC/Trabajo-IPC-NetBeans/src/controlador/RegistroController.java</file>
+            <file>file:/C:/Users/pangr/Documents/Trabajo-IPC/Trabajo-IPC-NetBeans/src/javafxmlapplication/JavaFXMLApplication.java</file>
+        </group>
+>>>>>>> 0e0bb23de65233a435b04a837b00ec7f355c12b9
+>>>>>>> 371221a3d890ffc413bb1b06d6091de03cee434d
     </open-files>
 </project-private>
