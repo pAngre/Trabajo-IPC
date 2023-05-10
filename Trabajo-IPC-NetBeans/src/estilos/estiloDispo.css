@@ -7,3 +7,14 @@
 .list-view {
     -fx-background-color: transparent;
 }
+#listaHoras .list-cell{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment:CENTER_RIGHT;
+}
+#listaDispo .list-cell{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
