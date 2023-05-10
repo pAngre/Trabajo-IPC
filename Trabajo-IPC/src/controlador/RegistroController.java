@@ -75,7 +75,7 @@ public class RegistroController implements Initializable {
 
     @FXML
     private void registrarClicked(ActionEvent event) throws ClubDAOException, IOException {
-        Club c = model.Club.getInstance();
+        Club c = Club.getInstance();
         
         // revisar que todos los campos son correctos
         if(esValido(campoNombre) && esValido(campoApellidos) && esTlfValido(campoTlf)
@@ -149,7 +149,7 @@ public class RegistroController implements Initializable {
     
     // metodo para saber si el TextField del NICK es valido
     private boolean esNickValido(TextField t) throws ClubDAOException, IOException{
-        Club c = model.Club.getInstance();
+        Club c = Club.getInstance();
         boolean existe = c.existsLogin(t.getText());
         String s = t.getText();
         return esValido(t) && !existe && !s.contains(" ");

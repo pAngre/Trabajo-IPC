@@ -80,7 +80,7 @@ public class LoginController implements Initializable {
         String nick = nickText.getText();
         String pass = passwordText.getText();
         //crea instancia de club
-        Club c = model.Club.getInstance();
+        Club c = Club.getInstance();
         
         //boolean existe = c.existsLogin(nick);
         // revisa que el login y la contraseña sean correctos y da la bienvenida

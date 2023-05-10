@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
@@ -65,7 +65,7 @@ public class DisponibilidadPistasController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             // TODO
-            Club c = model.Club.getInstance();
+            Club c = Club.getInstance();
             
             //opciones a elegir de pistas
             List <Court> pistas = c.getCourts();
@@ -143,7 +143,7 @@ public class DisponibilidadPistasController implements Initializable {
     private ArrayList<LocalTime> crearListaHoras(ArrayList<LocalTime> misdatos){
         Club c = null;
         try {
-            c = model.Club.getInstance();
+            c = Club.getInstance();
         } catch (IOException ex) {
             Logger.getLogger(DisponibilidadPistasController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClubDAOException ex) {
@@ -169,7 +169,7 @@ public class DisponibilidadPistasController implements Initializable {
         ArrayList<String> res = new ArrayList<String>();
         Club c = null;
         try {
-            c = model.Club.getInstance();
+            c = Club.getInstance();
         } catch (IOException ex) {
             Logger.getLogger(DisponibilidadPistasController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClubDAOException ex) {
