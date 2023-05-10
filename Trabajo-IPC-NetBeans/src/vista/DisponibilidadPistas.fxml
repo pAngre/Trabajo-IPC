@@ -28,11 +28,11 @@
             </ComboBox>
             <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="500.0">
                <children>
-                  <ListView fx:id="listaHoras" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="325.0" prefWidth="150.0">
+                  <ListView fx:id="listaHoras" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="350.0" prefWidth="175.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></ListView>
-                  <ListView fx:id="listaDispo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="325.0" prefWidth="225.0" />
+                  <ListView fx:id="listaDispo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="350.0" prefWidth="250.0" />
                </children>
                <VBox.margin>
                   <Insets top="50.0" />
