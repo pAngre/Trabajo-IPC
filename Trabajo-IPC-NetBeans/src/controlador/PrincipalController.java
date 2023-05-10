@@ -44,7 +44,7 @@ public class PrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // LOGO CIRCULAR
-        Image imagen = new Image(getClass().getResourceAsStream("/avatars/logo2.png"));
+        Image imagen = new Image(getClass().getResourceAsStream("/avatars/logo2.PNG"));
         circulo.setFill(new ImagePattern(imagen));
         
         //logo = new ImageView(imagen);
@@ -60,15 +60,21 @@ public class PrincipalController implements Initializable {
         Parent root = miCargador.load();
         
         Scene scene = new Scene(root);
+        String css = this.getClass().getResource("/estilos/estiloDispo.css").toExternalForm();
+        scene.getStylesheets().add(css);
         Stage stage = new Stage();
         
         stage.setScene(scene);
         stage.setTitle("Ver Disponibilidad de Pistas");
-        stage.setMaximized(true);
+        stage.setMinHeight(500);
+        stage.setMinWidth(550);
+        //stage.setMaximized(true);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
-        Stage mystage = (Stage) this.botonDispo.getScene().getWindow();
-        mystage.close();
+        
+        //cerrar vetntana
+        stage = (Stage) botonDispo.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

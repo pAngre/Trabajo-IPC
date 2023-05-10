@@ -10,12 +10,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.*;
 
 
 public class JavaFXMLApplication extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        
+        Club c = model.Club.getInstance();
         
         FXMLLoader loader= new  FXMLLoader(getClass().getResource("/vista/Principal.fxml"));
         Parent root = loader.load();
@@ -28,7 +31,7 @@ public class JavaFXMLApplication extends Application {
         stage.setTitle("Club de Tenis MASTURBANDA");
         stage.setMinHeight(400);
         stage.setMinWidth(600);
-        stage.setMaximized(true);
+        //stage.setMaximized(true);
         stage.show();
     }
 

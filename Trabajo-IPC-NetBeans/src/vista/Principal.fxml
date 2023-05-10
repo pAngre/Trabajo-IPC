@@ -45,7 +45,7 @@
             <Insets bottom="180.0" />
          </GridPane.margin>
          <font>
-            <Font name="Rockwell Extra Bold" size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Text>
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Club fundado en 1860" GridPane.halignment="CENTER" GridPane.rowIndex="1">
