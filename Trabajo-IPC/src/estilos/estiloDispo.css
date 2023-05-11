@@ -20,3 +20,7 @@
     -fx-font-weight: bold;
     -fx-font-size: 18px;
 }
+.button {
+    -fx-background-color: silver;
+    -fx-border-color: silver;
+}
