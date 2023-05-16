@@ -46,6 +46,9 @@ public class LoginController implements Initializable {
     private Button botonEntrar;
     @FXML
     private Circle logo;
+    
+    private Member usuario;
+    
 
     /**
      * Initializes the controller class.
@@ -55,7 +58,6 @@ public class LoginController implements Initializable {
         // imagen de logo
         Image image = new Image(getClass().getResourceAsStream("/resources/logo2.PNG"));
         logo.setFill(new ImagePattern(image));
-        
         
     }    
 
@@ -81,28 +83,35 @@ public class LoginController implements Initializable {
         String pass = passwordText.getText();
         //crea instancia de club
         Club c = Club.getInstance();
-        
         //boolean existe = c.existsLogin(nick);
+        
         // revisa que el login y la contraseña sean correctos y da la bienvenida
         if(c.existsLogin(nick)){
-         Member m = c.getMemberByCredentials(nick, pass);
+         usuario = c.getMemberByCredentials(nick, pass);
          
-         if(m == null){
+         if(usuario == null){
             textoError.setText("Nickname y contraseña no coinciden");
         }
          else{
-             textoError.setText("Bienvenido " + nick);
+             //textoError.setText("Bienvenido " + nick);
              // Abrir ventana PRINCIPAL CON LOGIN
              FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/PrincipalLogin.fxml"));
              Parent root = miCargador.load();
+             
+             PrincipalLoginController controlador = miCargador.getController();
+             controlador.initMember(nick, pass);
         
         
              Scene scene = new Scene(root);
+             String css = this.getClass().getResource("/estilos/estiloPrinLogin.css").toExternalForm();
+             scene.getStylesheets().add(css);
              Stage stage = new Stage();
              stage.setScene(scene);
              stage.setTitle("Club de Tenis MASTURANDA");
+             stage.setMinHeight(800);
+             stage.setMinWidth(1000);
              stage.initModality(Modality.APPLICATION_MODAL);
-             stage.setMaximized(true);
+             //stage.setMaximized(true);
              stage.show();
              // cerrar login y ventana principal
              stage = (Stage) botonEntrar.getScene().getWindow();
@@ -113,6 +122,4 @@ public class LoginController implements Initializable {
             textoError.setText("Login no existe. Porfavor registrate");
         }
     }
-
-    
 }

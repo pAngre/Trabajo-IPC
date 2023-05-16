@@ -110,19 +110,9 @@ public class DisponibilidadPistasController implements Initializable {
 
     @FXML
     private void clickedAtras(ActionEvent event) throws IOException {
-        // VOLVER A PRINCIPAL SIN LOGIN
+        // CERRAR VENTANA
         
-        FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/Principal.fxml"));
-        Parent root = miCargador.load();
-               
-        Scene scene = new Scene(root);
         Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Club de Tenis MASTURBANDA");
-        stage.initModality(Modality.APPLICATION_MODAL);
-        //stage.setMaximized(true);
-        stage.show();
-        // cerrar ventana principal
         stage = (Stage) botonAtras.getScene().getWindow();
         stage.close();
     }
