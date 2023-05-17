@@ -20,11 +20,33 @@
     -fx-font-weight: bold;
     -fx-font-size: 18px;
 }
-.button {
-    -fx-background-color: linear-gradient(#ff5400, #be1d00);
+#botonAtras {
+    -fx-background-color: white;
     -fx-background-radius: 30;
     -fx-background-insets: 0;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-font-size: 12px;
+    -fx-border-radius: 30;
+    -fx-border-insets: -1;
+    -fx-border-width: 3 3 3 3;
+    -fx-border-color: black;
+}
+#botonAtras:hover{
+    -fx-background-color: silver;
+}
+#verDispo{
+    -fx-background-color: white;
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-border-radius: 30;
+    -fx-border-insets: -1;
+    -fx-border-width: 3 3 3 3;
+    -fx-border-color: black;
+}
+#verDispo:hover{
+    -fx-background-color: silver;
 }

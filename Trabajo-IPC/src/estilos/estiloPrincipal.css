@@ -8,3 +8,6 @@
     -fx-background-color: silver;
     -fx-border-color: whitesmoke;
 }
+.button:hover{
+    -fx-background-color: white;
+}

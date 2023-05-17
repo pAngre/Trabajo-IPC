@@ -109,11 +109,47 @@ public class PrincipalLoginController implements Initializable {
     
 
     @FXML
-    private void clickedReservar(ActionEvent event) {
+    private void clickedReservar(ActionEvent event) throws IOException {
+        FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/ReservarPista.fxml"));
+        Parent root = miCargador.load();
+        
+        ReservarPistaController controlador = miCargador.getController();
+        //controlador.initMember(nick, pass);
+        
+        Scene scene = new Scene(root);
+        //String css = this.getClass().getResource("/estilos/estilo.css").toExternalForm();
+        //scene.getStylesheets().add(css);
+        Stage stage = new Stage();
+        
+        stage.setScene(scene);
+        stage.setTitle("Ver Disponibilidad de Pistas");
+        stage.setMinHeight(750);
+        stage.setMinWidth(900);
+        //stage.setMaximized(true);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
 
     @FXML
-    private void clickedMisReservas(ActionEvent event) {
+    private void clickedMisReservas(ActionEvent event) throws IOException {
+        FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/MisReservas.fxml"));
+        Parent root = miCargador.load();
+        
+        MisReservasController controlador = miCargador.getController();
+        //controlador.initMember(nick, pass);
+        
+        Scene scene = new Scene(root);
+        //String css = this.getClass().getResource("/estilos/estilo.css").toExternalForm();
+        //scene.getStylesheets().add(css);
+        Stage stage = new Stage();
+        
+        stage.setScene(scene);
+        //stage.setTitle("Ver Disponibilidad de Pistas");
+        //stage.setMinHeight(750);
+        //stage.setMinWidth(900);
+        //stage.setMaximized(true);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
 
     @FXML
@@ -136,7 +172,25 @@ public class PrincipalLoginController implements Initializable {
     }
 
     @FXML
-    private void clickedMisDatos(ActionEvent event) {
+    private void clickedMisDatos(ActionEvent event) throws IOException {
+        FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/MisDatos.fxml"));
+        Parent root = miCargador.load();
+        
+        MisDatosController controlador = miCargador.getController();
+        //controlador.initMember(nick, pass);
+        
+        Scene scene = new Scene(root);
+        //String css = this.getClass().getResource("/estilos/estilo.css").toExternalForm();
+        //scene.getStylesheets().add(css);
+        Stage stage = new Stage();
+        
+        stage.setScene(scene);
+        //stage.setTitle("Ver Disponibilidad de Pistas");
+        //stage.setMinHeight(750);
+        //stage.setMinWidth(900);
+        //stage.setMaximized(true);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
 
     @FXML
