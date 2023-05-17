@@ -172,12 +172,12 @@ public class PrincipalLoginController implements Initializable {
     }
 
     @FXML
-    private void clickedMisDatos(ActionEvent event) throws IOException {
+    private void clickedMisDatos(ActionEvent event) throws IOException, ClubDAOException {
         FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/MisDatos.fxml"));
         Parent root = miCargador.load();
         
         MisDatosController controlador = miCargador.getController();
-        //controlador.initMember(nick, pass);
+        controlador.initMember(usuario);
         
         Scene scene = new Scene(root);
         //String css = this.getClass().getResource("/estilos/estilo.css").toExternalForm();
