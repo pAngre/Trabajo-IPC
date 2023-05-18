@@ -70,11 +70,7 @@ public class PrincipalController implements Initializable {
         stage.setMinWidth(900);
         //stage.setMaximized(true);
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.show();
-        
-        //cerrar vetntana
-        stage = (Stage) botonDispo.getScene().getWindow();
-        stage.hide();
+        stage.showAndWait();
     }
 
     @FXML
