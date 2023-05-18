@@ -2,119 +2,52 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="869.0" prefWidth="1121.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ReservarPistaController">
-   <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="btnAtras" mnemonicParsing="false" onAction="#clickedAtras" text="Atras">
-               <HBox.margin>
-                  <Insets left="10.0" top="20.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
-   </top>
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="541.0" prefWidth="537.0" spacing="36.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="803.0" prefWidth="537.0" spacing="36.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="114.0" vgap="2.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Text layoutX="-20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha:" x="-20.0" />
-                  <DatePicker fx:id="dia" GridPane.rowIndex="1" />
-               </children>
+            <DatePicker fx:id="dia" prefHeight="35.0" prefWidth="244.0" promptText="DD/MM/YYYY" />
+            <ComboBox fx:id="comboPistas" prefHeight="35.0" prefWidth="211.0" promptText="Nº PISTA">
                <VBox.margin>
-                  <Insets bottom="100.0" />
+                  <Insets top="20.0" />
                </VBox.margin>
-            </GridPane>
-            <Label fx:id="labelCol" />
-            <GridPane hgap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="604.0" VBox.vgrow="ALWAYS">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+            </ComboBox>
+            <HBox alignment="CENTER" prefHeight="402.0" prefWidth="487.0">
                <children>
-                  <Label text="09:00 - 10:00" GridPane.rowIndex="1" />
-                  <Label text="10:00 - 11:00" GridPane.rowIndex="2" />
-                  <Label text="11:00 - 12:00" GridPane.rowIndex="3" />
-                  <Label text="12:00 - 13:00" GridPane.rowIndex="4" />
-                  <Label text="13:00 - 14:00" GridPane.rowIndex="5" />
-                  <Label text="14:00 - 15:00" GridPane.rowIndex="6" />
-                  <Label text="15:00 - 16:00" GridPane.rowIndex="7" />
-                  <Label text="16:00 - 17:00" GridPane.rowIndex="8" />
-                  <Label text="17:00 - 18:00" GridPane.rowIndex="9" />
-                  <Label text="18:00 - 19:00" GridPane.rowIndex="10" />
-                  <Label text="19:00 - 20:00" GridPane.rowIndex="11" />
-                  <Label text="20:00 - 21:00" GridPane.rowIndex="12" />
-                  <Label text="21:00 - 22:00" GridPane.rowIndex="13" />
-                  <Label text="Pista 1" GridPane.columnIndex="1" />
-                  <Label text="Pista 2" GridPane.columnIndex="2" />
-                  <Label text="Pista 3" GridPane.columnIndex="3" />
-                  <Label text="Pista 4" GridPane.columnIndex="4" />
-                  <Label text="Pista 5" GridPane.columnIndex="5" />
-                  <Label text="Pista 6" GridPane.columnIndex="6" />
+                  <ListView fx:id="listaHoras" focusTraversable="false" prefHeight="370.0" prefWidth="200.0" />
+                  <ListView fx:id="listaDispo" prefHeight="447.0" prefWidth="200.0" />
                </children>
-               <VBox.margin>
-                  <Insets bottom="200.0" />
-               </VBox.margin>
-            </GridPane>
+            </HBox>
          </children>
          <padding>
             <Insets right="50.0" top="50.0" />
          </padding>
       </VBox>
    </center>
+   <top>
+      <Button fx:id="btnAtras" contentDisplay="TOP" mnemonicParsing="false" onAction="#clickedAtras" prefHeight="38.0" prefWidth="84.0" text="ATRAS" BorderPane.alignment="TOP_LEFT">
+         <graphic>
+            <ImageView fx:id="imgAtras" fitHeight="22.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+         <BorderPane.margin>
+            <Insets left="15.0" top="15.0" />
+         </BorderPane.margin>
+      </Button>
+   </top>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="slotSelected">
-               <HBox.margin>
-                  <Insets right="25.0" />
-               </HBox.margin>
-            </Label>
-            <Button fx:id="btnReservar" mnemonicParsing="false" onAction="#clickedReservar" text="Reservar">
-               <HBox.margin>
-                  <Insets left="25.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
+      <Label fx:id="horarioSelected" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="100.0" />
+         </BorderPane.margin>
+      </Label>
    </bottom>
 </BorderPane>

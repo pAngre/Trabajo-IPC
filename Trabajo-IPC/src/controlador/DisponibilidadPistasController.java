@@ -59,11 +59,7 @@ public class DisponibilidadPistasController implements Initializable {
     @FXML
     private ListView<Label> listaDispo;
     @FXML
-    private Button verDispo;
-    @FXML
     private ImageView img1;
-    @FXML
-    private ImageView img2;
     
     
 
@@ -83,6 +79,8 @@ public class DisponibilidadPistasController implements Initializable {
                 listaPistas[i] = pistas.get(i).getName();
             }
             comboPistas.getItems().addAll(listaPistas);
+            //inicializar combobox
+            comboPistas.setValue(listaPistas[0]);
             
             //inicializar DatePicker al dia actual
             dia.setValue(LocalDate.now());
@@ -97,6 +95,9 @@ public class DisponibilidadPistasController implements Initializable {
                 }
             };
          });
+            //inicializar listas
+            listaHoras.setItems(FXCollections.observableArrayList(crearListaHoras(new ArrayList<LocalTime>())));
+            listaDispo.setItems(FXCollections.observableArrayList(crearListaDispo(crearListaHoras(new ArrayList<LocalTime>()), comboPistas.getValue(), dia.getValue())));
             
         } catch (ClubDAOException ex) {
             Logger.getLogger(DisponibilidadPistasController.class.getName()).log(Level.SEVERE, null, ex);
@@ -107,46 +108,32 @@ public class DisponibilidadPistasController implements Initializable {
         //imagen atras
         Image imagen1 = new Image(getClass().getResourceAsStream("/resources/imgAtras.png"));
         img1.setImage(imagen1);
+       
         
-        //imagen disponibilidad
-        Image imagen2 = new Image(getClass().getResourceAsStream("/resources/imgVer.png"));
-        img2.setImage(imagen2);
+        
+        //listener de date picker
+        dia.valueProperty().addListener((a, b, c) -> {
+            ArrayList<LocalTime> misHoras = crearListaHoras(new ArrayList<LocalTime>());
+            listaHoras.setItems(FXCollections.observableArrayList(misHoras));
+            listaDispo.setItems(FXCollections.observableArrayList(crearListaDispo(misHoras, comboPistas.getValue(), c)));
+        });
+        
+        //listener de combobox
+        comboPistas.valueProperty().addListener((a, b ,c) -> {
+            ArrayList<LocalTime> misHoras = crearListaHoras(new ArrayList<LocalTime>());
+            listaHoras.setItems(FXCollections.observableArrayList(misHoras));
+            listaDispo.setItems(FXCollections.observableArrayList(crearListaDispo(misHoras, c, dia.getValue())));
+        });
     }    
 
     @FXML
     private void clickedAtras(ActionEvent event) throws IOException {
         // CERRAR VENTANA
         
-        Stage stage = new Stage();
-        stage = (Stage) botonAtras.getScene().getWindow();
+        Stage stage = (Stage) botonAtras.getScene().getWindow();
         stage.close();
     }
-    @FXML
-    private void clickedVer(ActionEvent event) {
-        if(comboPistas.getValue() != null && dia.getValue() != null){
-            
-            //lista de Horas
-            ArrayList<LocalTime> misHoras = new ArrayList<LocalTime>();
-            misHoras = crearListaHoras(misHoras);
-            ObservableList<LocalTime> horas = FXCollections.observableArrayList(misHoras);
-            listaHoras.setItems(horas);
-            
-            //lista de Disponibilidad
-            ArrayList<Label> miDispo = new ArrayList<Label>();
-            miDispo = crearListaDispo(misHoras,comboPistas.getValue(), dia.getValue());
-            ObservableList<Label> datos = FXCollections.observableArrayList(miDispo);
-            listaDispo.setItems(datos);
-        }
-        else{
-            // Alerta : FECHA O DIA INCORRECTOS
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("ERROR");
-            alert.setContentText("Porfavor inserte correctamente el dia y la pista");
-            alert.showAndWait();
-        }
-            
-    }
+
     
     private ArrayList<LocalTime> crearListaHoras(ArrayList<LocalTime> misdatos){
         Club c = null;

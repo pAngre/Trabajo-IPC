@@ -52,7 +52,7 @@ public class FXMLGridTimeSlotController implements Initializable {
     private Label labelCol;
 
     private final LocalTime firstSlotStart = LocalTime.of(9, 0);
-    private final Duration slotLength = Duration.ofMinutes(60);
+    private final Duration slotLength = Duration.ofMinutes(90);
     private final LocalTime lastSlotStart = LocalTime.of(21, 0);
 
     // se puede cambiar por codigo la pseudoclase activa de un nodo    

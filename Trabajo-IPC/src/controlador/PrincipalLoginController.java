@@ -117,8 +117,8 @@ public class PrincipalLoginController implements Initializable {
         //controlador.initMember(nick, pass);
         
         Scene scene = new Scene(root);
-        //String css = this.getClass().getResource("/estilos/estilo.css").toExternalForm();
-        //scene.getStylesheets().add(css);
+        String css = this.getClass().getResource("/estilos/estiloReservar.css").toExternalForm();
+        scene.getStylesheets().add(css);
         Stage stage = new Stage();
         
         stage.setScene(scene);
