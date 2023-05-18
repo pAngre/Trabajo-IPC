@@ -50,3 +50,9 @@
 #verDispo:hover{
     -fx-background-color: silver;
 }
+.list-cell-ocupada{
+    -fx-text-fill: red;
+}
+.list-cell-libre{
+    -fx-text-fill: greenyellow;
+}

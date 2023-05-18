@@ -27,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -56,13 +57,15 @@ public class DisponibilidadPistasController implements Initializable {
     @FXML
     private ListView<LocalTime> listaHoras;
     @FXML
-    private ListView<String> listaDispo;
+    private ListView<Label> listaDispo;
     @FXML
     private Button verDispo;
     @FXML
     private ImageView img1;
     @FXML
     private ImageView img2;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -81,6 +84,8 @@ public class DisponibilidadPistasController implements Initializable {
             }
             comboPistas.getItems().addAll(listaPistas);
             
+            //inicializar DatePicker al dia actual
+            dia.setValue(LocalDate.now());
             //restringir fechas
             dia.setDayCellFactory((DatePicker picker) -> {
                 return new  DateCell(){
@@ -127,9 +132,9 @@ public class DisponibilidadPistasController implements Initializable {
             listaHoras.setItems(horas);
             
             //lista de Disponibilidad
-            ArrayList<String> miDispo = new ArrayList<String>();
+            ArrayList<Label> miDispo = new ArrayList<Label>();
             miDispo = crearListaDispo(misHoras,comboPistas.getValue(), dia.getValue());
-            ObservableList<String> datos = FXCollections.observableArrayList(miDispo);
+            ObservableList<Label> datos = FXCollections.observableArrayList(miDispo);
             listaDispo.setItems(datos);
         }
         else{
@@ -168,8 +173,10 @@ public class DisponibilidadPistasController implements Initializable {
         return misdatos;
     }
     
-    private ArrayList<String> crearListaDispo(ArrayList<LocalTime> misHoras, String pista, LocalDate dia){
-        ArrayList<String> res = new ArrayList<String>();
+    private ArrayList<Label> crearListaDispo(ArrayList<LocalTime> misHoras, String pista, LocalDate dia){
+        ArrayList<Label> res = new ArrayList<Label>();
+        //Label libre = null;
+        
         Club c = null;
         try {
             c = Club.getInstance();
@@ -189,14 +196,25 @@ public class DisponibilidadPistasController implements Initializable {
             Booking reserva = reservas.get(j);
             
             if(hora.equals(reserva.getFromTime())){
-                res.add("RESRERVADO  por : " + reserva.getMember().getNickName());
+                Label reservado = new Label();
+                reservado.setText("RESRERVADO  por : " + reserva.getMember().getNickName());
+                reservado.setStyle("-fx-text-fill: red;");
+                res.add(reservado);
             }
-            else res.add("LIBRE");
+            else{
+                Label libre = new Label();
+                libre.setText("LIBRE");
+                libre.setStyle("-fx-text-fill: green;");
+                res.add(libre);
+            }
             }   
         }
         else{
             for(int i = 0; i < misHoras.size(); i++){
-                res.add("LIBRE");
+                Label libre = new Label();
+                libre.setText("LIBRE");
+                libre.setStyle("-fx-text-fill: green;");
+                res.add(libre);
             }
         }
         
