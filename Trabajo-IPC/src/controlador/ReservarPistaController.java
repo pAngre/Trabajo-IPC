@@ -6,6 +6,7 @@ package controlador;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -21,14 +22,18 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -69,6 +74,10 @@ public class ReservarPistaController implements Initializable {
     private ImageView imgAtras;
     @FXML
     private Label horarioSelected;
+    
+    //formato de fecha y hora
+    DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("H:mm");
+    DateTimeFormatter dayFormatter = DateTimeFormatter.ofPattern("EEEE d MMMM");
 
     /**
      * Initializes the controller class.
@@ -103,14 +112,21 @@ public class ReservarPistaController implements Initializable {
                 super.updateItem(date, empty);
                 LocalDate today = LocalDate.now();
                 setDisable(empty || date.compareTo(today) < 0); 
-            }
-        };
-    });
+                }
+            };
+        });
         
         //inicializar listas
             listaHoras.setItems(FXCollections.observableArrayList(crearListaHoras(new ArrayList<LocalTime>())));
             listaDispo.setItems(FXCollections.observableArrayList(crearListaDispo(crearListaHoras(new ArrayList<LocalTime>()), comboPistas.getValue(), dia.getValue())));
-            registerHandlers(listaDispo);
+            
+            //seleccionar horarios
+            //listaHoras.getSelectionModel().select(0);
+            //listaDispo.getSelectionModel().select(0);
+            
+            syncListas(listaDispo, listaHoras);
+            registerHandlers(listaDispo, listaHoras);
+            
         //imagen atras
         Image imagen1 = new Image(getClass().getResourceAsStream("/resources/imgAtras.png"));
         imgAtras.setImage(imagen1);
@@ -128,6 +144,29 @@ public class ReservarPistaController implements Initializable {
             listaHoras.setItems(FXCollections.observableArrayList(misHoras));
             listaDispo.setItems(FXCollections.observableArrayList(crearListaDispo(misHoras, c, dia.getValue())));
         });
+        
+        //set horario selected
+        listaHoras.getSelectionModel().selectedItemProperty().addListener((a, b, c) -> {
+            if (c == null || listaDispo.getSelectionModel().getSelectedItem() == null) {
+                horarioSelected.setText("");
+            }
+            else{
+                horarioSelected.setText(comboPistas.getValue() + " esta " + listaDispo.getSelectionModel().getSelectedItem().getText() +
+                        " a las: " + listaHoras.getSelectionModel().getSelectedItem().format(timeFormatter) + " para el: " + dia.getValue().format(dayFormatter));
+            }
+        });
+        
+        //listaDispo no seleccionable
+        //listaDispo.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener() {
+        //            @Override
+        //            public void changed(ObservableValue observable, Object oldvalue, Object newValue) {
+        //                Platform.runLater(new Runnable() {
+        //                    public void run() {
+        //                        listaDispo.getSelectionModel().select(-1);
+        //                    }
+        //                });
+        //            }
+        //        });
     }
     
     @FXML
@@ -212,16 +251,61 @@ public class ReservarPistaController implements Initializable {
         return res;
     }
     
-    private void registerHandlers(ListView<Label> listaDispo){
+    private void syncListas(ListView<Label> lista1, ListView<LocalTime> lista2){
+        lista1.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener() {
+                    public void changed(ObservableValue observable, Object oldvalue, Object newValue) {
+                        lista2.getSelectionModel().select(lista1.getSelectionModel().getSelectedIndex());
+                    }
+                });
         
-        listaHoras.getSelectionModel().selectedItemProperty().addListener((a, b, c) -> {
-            if (c == null) {
-                horarioSelected.setText("");
+        lista2.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener() {
+                    public void changed(ObservableValue observable, Object oldvalue, Object newValue) {
+                        lista1.getSelectionModel().select(lista2.getSelectionModel().getSelectedIndex());
+                    }
+                });
+    }
+    
+    private void registerHandlers(ListView<Label> lista1, ListView<LocalTime> lista2){
+        try {
+            Club club = Club.getInstance();
+        } catch (ClubDAOException ex) {
+            Logger.getLogger(ReservarPistaController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ReservarPistaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        lista1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            
+            @Override
+            public void handle(MouseEvent click) {
+                if(click.getClickCount() == 2){
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Confirmacion");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Seguro que quieres salir?");
+                    Optional<ButtonType> result = alert.showAndWait();
+                }
             }
-            else{
-                horarioSelected.setText(c.toString());
+        });
+        
+        lista2.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            
+            @Override
+            public void handle(MouseEvent click) {
+                if(click.getClickCount() == 2){
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Confirmacion");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Seguro que quieres salir?");
+                    Optional<ButtonType> result = alert.showAndWait();
+                }
             }
-    });
+        });
+        
+        
+        
         //horarioSelected.setText(listaHoras.getSelectionModel().getSelectedItem().toString());
     }
+
+   
 }
