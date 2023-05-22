@@ -61,7 +61,7 @@
                   <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <VBox.margin>
-                  <Insets bottom="60.0" right="150.0" top="80.0" />
+                  <Insets bottom="60.0" right="150.0" top="60.0" />
                </VBox.margin>
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre :" wrappingWidth="79.13671875" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
