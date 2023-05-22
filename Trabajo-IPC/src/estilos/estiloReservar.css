@@ -1,0 +1,21 @@
+
+.time-slot {
+    -fx-background-color: red, white ;
+    -fx-background-insets: 0, 1 1 0 0 ;
+    -fx-cursor: hand;
+}
+
+.time-slot-libre{
+    -fx-background-color: red, #ccccff ;
+    -fx-background-insets: 0, 1 1 0 0 ;
+    -fx-cursor: hand;
+
+}
+
+.time-slot:selected {
+    -fx-background-color: indianred;
+}
+
+.date-picker > .text-field {
+    -fx-text-fill: blue;
+}

@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.*;
 import model.ClubDAOException;
@@ -41,17 +42,20 @@ public class MisDatosController implements Initializable {
     @FXML
     private TextField TextFieldTelefono;
     
-    //private Member usuario;
+    private Member usuario;
     private boolean pressedGuardar = false;
     @FXML
     private Button btnAtras;
     @FXML
     private Button btnGuardar;
+    @FXML
+    private ImageView avatar;
     
     
     public void initMember(Member usuario) throws ClubDAOException, IOException{
         //Club c = Club.getInstance();
         //usuario = c.getMemberByCredentials(nick, pass);
+        this.usuario = usuario;
         TextFieldNombre.setText(usuario.getName());
         TextFieldApellidos.setText(usuario.getSurname());
         TextFieldNombreUsuario.setText(usuario.getNickName());
@@ -64,6 +68,7 @@ public class MisDatosController implements Initializable {
         if(usuario.getSvc() != 0){
             TextFieldSVC.setText(Integer.toString(usuario.getSvc()));
         }
+        avatar.setImage(usuario.getImage());
     }
     
     public boolean isGuardarPressed(){

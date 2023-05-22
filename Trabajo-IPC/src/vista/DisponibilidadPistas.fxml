@@ -12,20 +12,20 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="600.0" styleClass="body" stylesheets="@../estilos/estiloDispo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.DisponibilidadPistasController">
    <top>
-      <Button fx:id="botonAtras" contentDisplay="TOP" mnemonicParsing="false" onAction="#clickedAtras" prefHeight="70.0" prefWidth="114.0" text="ATRAS" BorderPane.alignment="TOP_LEFT">
+      <Button fx:id="botonAtras" contentDisplay="TOP" mnemonicParsing="false" onAction="#clickedAtras" prefHeight="38.0" prefWidth="84.0" text="ATRAS" BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>
             <Insets left="15.0" top="15.0" />
          </BorderPane.margin>
          <graphic>
-            <ImageView fx:id="img1" fitHeight="50.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="img1" fitHeight="22.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
          </graphic>
       </Button>
    </top>
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <DatePicker fx:id="dia" promptText="DD/MM/YYYY" />
-            <ComboBox fx:id="comboPistas" prefWidth="150.0" promptText="Nº PISTA">
+            <DatePicker fx:id="dia" prefHeight="35.0" prefWidth="244.0" promptText="DD/MM/YYYY" />
+            <ComboBox fx:id="comboPistas" prefHeight="35.0" prefWidth="211.0" promptText="Nº PISTA">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -45,21 +45,4 @@
          </children>
       </VBox>
    </center>
-   <right>
-      <VBox alignment="TOP_RIGHT" prefHeight="595.0" prefWidth="268.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="verDispo" mnemonicParsing="false" onAction="#clickedVer" prefHeight="80.0" prefWidth="195.0" text="Ver Disponibilidad">
-               <VBox.margin>
-                  <Insets right="75.0" />
-               </VBox.margin>
-               <graphic>
-                  <ImageView fx:id="img2" fitHeight="50.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-         </children>
-      </VBox>
-   </right>
-   <left>
-      <VBox prefHeight="200.0" prefWidth="180.0" BorderPane.alignment="CENTER" />
-   </left>
 </BorderPane>

@@ -1,5 +1,5 @@
 .body{
-    -fx-background-image: url("/resources/tenis.jpg");
+    -fx-background-image: url("/resources/tenisfiltro.jpg");
     -fx-background-repeat: no-repeat;
     -fx-backgroung-position: center;
     -fx-background-size: 100% 100%;
@@ -21,7 +21,7 @@
     -fx-font-size: 18px;
 }
 #botonAtras {
-    -fx-background-color: white;
+    -fx-background-color: yellowgreen;
     -fx-background-radius: 30;
     -fx-background-insets: 0;
     -fx-text-fill: black;
@@ -35,24 +35,20 @@
 #botonAtras:hover{
     -fx-background-color: silver;
 }
-#verDispo{
-    -fx-background-color: white;
-    -fx-background-radius: 30;
-    -fx-background-insets: 0;
-    -fx-text-fill: black;
-    -fx-font-weight: bold;
-    -fx-font-size: 12px;
-    -fx-border-radius: 30;
-    -fx-border-insets: -1;
-    -fx-border-width: 3 3 3 3;
-    -fx-border-color: black;
+.combo-box{
+    -fx-font-size: 16px;
+    -fx-background-color: yellowgreen;
 }
-#verDispo:hover{
+.combo-box:hover{
     -fx-background-color: silver;
 }
-.list-cell-ocupada{
-    -fx-text-fill: red;
+.combo-box .list-cell:hover{
+    -fx-background-color: silver;
 }
-.list-cell-libre{
-    -fx-text-fill: greenyellow;
+.date-picker .text-field{
+    -fx-font-size:16px;
+    -fx-background-color: silver;
+}
+.date-picker .button{
+    -fx-background-color: silver;
 }
